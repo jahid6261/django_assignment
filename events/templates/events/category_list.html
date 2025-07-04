@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Category List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="p-6 bg-gray-100">
+    <h1 class="text-2xl font-bold mb-4">All Categories</h1>
+    <a href="{% url 'category_create' %}" class="bg-blue-600 text-white px-4 py-2 rounded">Add Category</a>
+    <ul class="mt-4">
+        {% for category in categories %}
+            <li class="bg-white p-4 mb-2 rounded shadow">
+                <strong>{{ category.name }}</strong>: {{ category.description }}<br>
+                <a href="{% url 'category_update' category.pk %}" class="text-blue-600">Edit</a> |
+                <a href="{% url 'category_delete' category.pk %}" class="text-red-600">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

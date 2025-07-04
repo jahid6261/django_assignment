@@ -1,0 +1,33 @@
+<!-- templates/events/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Event Management{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!--  Navbar -->
+    <nav class="bg-blue-700 text-white p-4 shadow mb-6">
+        <div class="container mx-auto flex justify-between">
+            <div>
+                <a href="{% url 'event_list' %}" class="font-bold text-lg">Event System</a>
+            </div>
+            <div class="space-x-4">
+                <a href="{% url 'dashboard' %}" class="hover:underline">Dashboard</a>
+                <a href="{% url 'event_list' %}" class="hover:underline">Events</a>
+                <a href="{% url 'participant_list' %}" class="hover:underline">Participants</a>
+                <a href="{% url 'category_list' %}" class="hover:underline">Categories</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <div class="container mx-auto px-4">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+</body>
+</html>

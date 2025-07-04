@@ -1,0 +1,7 @@
+<h2 class="text-xl font-bold mb-4">Participant Form</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button class="bg-green-500 text-white px-4 py-2">Save</button>
+</form>
+<a href="{% url 'participant_list' %}">Back</a>
