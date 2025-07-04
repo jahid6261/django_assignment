@@ -1,3 +1,5 @@
+
+import dj_database_url
 """
 Django settings for event_system project.
 
@@ -73,11 +75,19 @@ WSGI_APPLICATION = 'event_system.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+#DATABASES = {
+ #   'default': {
+  #      'ENGINE': 'django.db.backends.sqlite3',
+   #     'NAME': BASE_DIR / 'db.sqlite3',
+    #}
+#}
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        # Replace this value with your local database's connection string.
+        default='postgresql://event_managment_user:2oAthZna6QRm38eooAZD45mbloM7y3ad@dpg-d1juo82li9vc738r7oh0-a.oregon-postgres.render.com/event_managment',
+        conn_max_age=600
+    )
 }
 
 
